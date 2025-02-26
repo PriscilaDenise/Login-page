@@ -7,7 +7,7 @@ body {
 }
 
 .container {
-    width: 300px;
+    width: 450px;
     margin: 100px auto;
     padding: 20px;
     background: white;
@@ -20,7 +20,7 @@ h2 {
 }
 
 input {
-    width: 100%;
+    width: 80%;
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #ccc;
