@@ -96,7 +96,6 @@ if (signupForm) {
 
 
 
-
 //logout functionality for the frontend
 const logoutButton = document.getElementById("logout");
 if (logoutButton) {
@@ -106,8 +105,6 @@ if (logoutButton) {
         window.location.href = "index.html";
     });
 }
-
-
 
 
 
