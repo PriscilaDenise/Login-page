@@ -20,7 +20,7 @@ h2 {
 }
 
 input {
-    width: 100%;
+    width: 280px;
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #ccc;
@@ -30,7 +30,7 @@ input {
 button {
     width: 100%;
     padding: 10px;
-    background: #28a745;
+    background: hsl(214, 89%, 46%);
     color: white;
     border: none;
     border-radius: 5px;
@@ -38,7 +38,7 @@ button {
 }
 
 button:hover {
-    background: #218838;
+    background: hsl(214, 89%, 40%);
 }
 
 nav {
