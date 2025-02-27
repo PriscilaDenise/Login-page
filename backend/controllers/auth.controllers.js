@@ -141,7 +141,7 @@ export const forgotPassword = async (req, res) => {
 
         // Validate input
         if (!email) {
-            return res.status(400).json({ message: "Email is required" }); // if the email is not present, return a 400 status and a message
+            return res.status(400).json({ message: "Email is needed" }); // if the email is not present, return a 400 status and a message
         }
 
         // Read users
