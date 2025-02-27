@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     text-align: center;
-    margin: 0;
+    margin-top: 20;
     padding: 0;
     background-image: url('../assets/home_background.jpg');  /* Replace with your image URL */
     background-size: cover;  /* Ensures the image covers the entire background */
