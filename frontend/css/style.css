@@ -4,7 +4,7 @@ body {
     text-align: center;
     margin-top: 20;
     padding: 0;
-    background-image: url('../assets/home_background.jpg');  /* Replace with your image URL */
+    background-image: url('../assets/home_background3.jpg');  /* Replace with your image URL */
     background-size: cover;  /* Ensures the image covers the entire background */
     background-position: center;  /* Centers the image */
     background-repeat: no-repeat;  /* Prevents the image from repeating */
@@ -12,6 +12,16 @@ body {
     margin: 0;  /* Removes any default margin */
 }
 
+body::before {
+    content: '';  /* Required to display the pseudo-element */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);  /* Dark overlay with 50% opacity */
+    z-index: -1;  /* Make sure the overlay is behind the content */
+}
 
 .container {
 
@@ -60,7 +70,7 @@ button {
     padding: 10px;
     margin: 10px 0;
     background: hsl(214, 89%, 46%);
-    color:black;
+    color:white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
