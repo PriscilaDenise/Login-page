@@ -21,7 +21,7 @@ const PORT = process.env.PORT;
 app.use('/api/auth', authRoutes);
 
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+    console.log(`Server is running in the port ${PORT}`);
     console.log("JWT Secret:", process.env.JWT_SECRET);
 });
 
