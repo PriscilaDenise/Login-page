@@ -2,7 +2,6 @@ import fs from 'fs/promises';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import path from 'path';
-import nodemailer from 'nodemailer';
 
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
