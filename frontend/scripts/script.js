@@ -1,5 +1,8 @@
 
 
+
+
+
 //login functionality for the frontend
 const loginForm = document.getElementById("loginForm");
 if (loginForm) {
@@ -39,6 +42,8 @@ if (loginForm) {
         });
     });
 }
+
+
 
 
 //signup functionality for the frontend
@@ -89,6 +94,9 @@ if (signupForm) {
     });
 }
 
+
+
+
 //logout functionality for the frontend
 const logoutButton = document.getElementById("logout");
 if (logoutButton) {
@@ -98,6 +106,8 @@ if (logoutButton) {
         window.location.href = "index.html";
     });
 }
+
+
 
 
 
