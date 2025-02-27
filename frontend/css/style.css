@@ -2,23 +2,50 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     text-align: center;
-    margin: 0;
+    margin-top: 20;
     padding: 0;
+    background-image: url('../assets/home_background.jpg');  /* Replace with your image URL */
+    background-size: cover;  /* Ensures the image covers the entire background */
+    background-position: center;  /* Centers the image */
+    background-repeat: no-repeat;  /* Prevents the image from repeating */
+    height: 100vh;  /* Ensures the body takes up the entire viewport height */
+    margin: 0;  /* Removes any default margin */
 }
 
 
 .container {
-    width: 400px;
-    margin: 100px auto;
-    padding: 10px;
+
+    /* margin: 100px auto;
+
     background: white;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
+    border-radius: 5px; */
+
+    padding: 10px;
+    width: 400px;
+    position: absolute;
+    top: 50%;  
+    left: 50%;  
+    transform: translate(-50%, -50%);  
+    background: white;  
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+
 
 h2 {
     margin-bottom: 20px;
 }
+
+#image {
+    width: 100px;  
+    height: 100px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+}
+
 
 input {
     width: 280px;
@@ -33,14 +60,14 @@ button {
     padding: 10px;
     margin: 10px 0;
     background: hsl(214, 89%, 46%);
-    color: white;
+    color:black;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
 button:hover {
-    background: hsl(214, 89%, 40%);
+    background: hsl(214, 89%, 35%);
 }
 
 nav {

@@ -1,5 +1,8 @@
 
 
+
+
+
 //login functionality for the frontend
 const loginForm = document.getElementById("loginForm");
 if (loginForm) {
@@ -41,6 +44,8 @@ if (loginForm) {
 }
 
 
+
+
 //signup functionality for the frontend
 const signupForm = document.getElementById("signupForm"); //get the signup form from the html
 if (signupForm) {
@@ -68,18 +73,18 @@ if (signupForm) {
             },
             body: JSON.stringify({ name, email, password }) //send the name, email and password to the backend
         })
-        .then(response => {
-            console.log('Response status:', response.status);
-            return response.json();
+        .then(response => { //then the response from the backend
+            console.log('Response status:', response.status); //log the response status
+            return response.json(); //return the response as json
         })
         .then(data => {
             console.log('Response data:', data);
             if (data.token) {
-                localStorage.setItem("token", data.token);
+                localStorage.setItem("token", data.token); //store the token in the local storage
                 alert("Signup successful! Return to login page.");
                 window.location.href = "index.html";
             } else {
-                alert(data.message || "Signup failed.");
+                alert(data.message || "Signup failed."); //alert the user if the signup failed
             }
         })
         .catch(error => {
@@ -89,121 +94,6 @@ if (signupForm) {
     });
 }
 
-
-//forgot password functionality
-const forgotPasswordForm = document.getElementById("forgotPasswordForm");
-if (forgotPasswordForm) {
-    forgotPasswordForm.addEventListener("submit", function(event) {
-        event.preventDefault();
-        const email = document.getElementById("resetEmail").value;
-
-        // Basic validation
-        if (!email.includes("@")) {
-            alert("Please enter a valid email address");
-            return;
-        }
-
-        // Show loading state
-        const submitButton = this.querySelector('button');
-        submitButton.disabled = true;
-        submitButton.textContent = 'Sending...';
-
-        fetch("http://localhost:3050/api/auth/forgot-password", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            },
-            body: JSON.stringify({ email })
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.message) {
-                alert("OTP has been sent to your email");
-                // Store email for reset password page
-                sessionStorage.setItem("resetEmail", email);
-                window.location.href = "resetPassword.html";
-            } else {
-                alert(data.error || "Failed to send OTP");
-            }
-        })
-        .catch(error => {
-            console.error("Forgot password error:", error);
-            alert("An error occurred. Please try again later.");
-        })
-        .finally(() => {
-            submitButton.disabled = false;
-            submitButton.textContent = 'SEND OTP';
-        });
-    });
-}
-
-
-//reset password functionality
-const resetPasswordForm = document.getElementById("resetPasswordForm");
-if (resetPasswordForm) {
-    // Pre-fill email from forgot password page
-    const savedEmail = sessionStorage.getItem("resetEmail");
-    if (savedEmail) {
-        document.getElementById("email").value = savedEmail;
-    }
-
-    resetPasswordForm.addEventListener("submit", function(event) {
-        event.preventDefault();
-        const email = document.getElementById("email").value;
-        const otp = document.getElementById("otp").value;
-        const newPassword = document.getElementById("newPassword").value;
-        const confirmPassword = document.getElementById("confirmPassword").value;
-
-        // Validation
-        if (!email || !otp || !newPassword || !confirmPassword) {
-            alert("All fields are required");
-            return;
-        }
-
-        if (newPassword !== confirmPassword) {
-            alert("Passwords do not match");
-            return;
-        }
-
-        if (newPassword.length < 6) {
-            alert("Password must be at least 6 characters long");
-            return;
-        }
-
-        // Show loading state
-        const submitButton = this.querySelector('button');
-        submitButton.disabled = true;
-        submitButton.textContent = 'Resetting...';
-
-        fetch("http://localhost:3050/api/auth/reset-password", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            },
-            body: JSON.stringify({ email, otp, newPassword })
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.message === "Password reset successful") {
-                alert("Password reset successful! Please login with your new password.");
-                sessionStorage.removeItem("resetEmail"); // Clean up
-                window.location.href = "index.html";
-            } else {
-                alert(data.message || "Failed to reset password");
-            }
-        })
-        .catch(error => {
-            console.error("Reset password error:", error);
-            alert("An error occurred. Please try again later.");
-        })
-        .finally(() => {
-            submitButton.disabled = false;
-            submitButton.textContent = 'Reset Password';
-        });
-    });
-}
 
 
 //logout functionality for the frontend
@@ -215,6 +105,7 @@ if (logoutButton) {
         window.location.href = "index.html";
     });
 }
+
 
 
 // display user data on home and profile pages
